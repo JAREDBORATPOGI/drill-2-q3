@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brasik Kalculator🤪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background-color: #0d1c46;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background: #111;
+            padding: 30px;
+            border: 2px solid #fff;
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            background: #000;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        #output {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+        <h1>Brasik Kalculator🤪</h1>
+
+        <label>Number 1:
+            <input id="num1" type="number" value="0">
+        </label>
+
+        <label>Number 2:
+            <input id="num2" type="number" value="0">
+        </label>
+
+        <select id="results">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+
+        <button type="button" onclick="displayMe()">Calculate</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function displayMe(){
+            const num1 = Number(document.getElementById("num1").value);
+            const num2 = Number(document.getElementById("num2").value);
+            const operation = document.getElementById("results").value;
+            let result;
+
+            if (operation === "add") {
+                result = num1 + num2;
+
+            } else if (operation === "subtract") {
+                result = num1 - num2;
+
+            } else if (operation === "multiply") {
+                result = num1 * num2;
+
+            } else if (operation === "divide") {
+                if (num2 === 0) {
+                    alert("Cannot divide by zero!");
+                    document.getElementById("output").textContent = "";
+                    return;
+                }
+                result = num1 / num2;
+            }
+
+            document.getElementById("output").textContent = "The result is: " + result;
+        }
+    </script>
+
+</body>
+</html>
